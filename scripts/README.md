@@ -17,7 +17,7 @@ The `llama_cpp` and `qairt` runtimes both target the NPU but through **separate 
 
 ## Install
 
-Release assets live on the [Releases page](https://github.com/qcom-ai-hub/geniex/releases). `<TAG>` below is the release tag (e.g. `v0.4.0`).
+Release assets live on the [Releases page](https://github.com/qualcomm/nexa-sdk/releases). `<TAG>` below is the release tag (e.g. `v0.4.0`).
 
 ### Windows (installer)
 
@@ -31,7 +31,7 @@ Install on a Snapdragon device (EVK, container, or any ARM64 Linux with a Qualco
 
 ```bash
 # Optional: verify QCOM driver and system-library prerequisites first.
-curl -fsSL https://raw.githubusercontent.com/qcom-ai-hub/geniex/main/cli/release/linux/check.sh | sh
+curl -fsSL https://raw.githubusercontent.com/qualcomm/nexa-sdk/main/cli/release/linux/check.sh | sh
 
 curl -fsSL https://qaihub-public-assets.s3.us-west-2.amazonaws.com/qai-hub-geniex/install.sh | sh
 ```
@@ -56,13 +56,13 @@ Pin a version: `... | sh -s -- --version v0.1.8`. Override the install location:
 Prefer Docker (versioned image, repeatable, no host-side install):
 
 ```bash
-docker pull ghcr.io/qcom-ai-hub/geniex-cli:<TAG>
+docker pull ghcr.io/qualcomm/geniex-cli:<TAG>
 
 # interactive mode
 docker run -it --rm --privileged \
   -v "$PWD/data:/data" \
   -v /usr/lib:/opt/qcom-lib:ro \
-  ghcr.io/qcom-ai-hub/geniex-cli:<TAG> \
+  ghcr.io/qualcomm/geniex-cli:<TAG> \
   infer Qwen/Qwen3-0.6B-GGUF
 
 # server mode
@@ -70,14 +70,14 @@ docker run -it --rm --privileged \
   -v "$PWD/data:/data" \
   -v /usr/lib:/opt/qcom-lib:ro \
   --network=host \
-  ghcr.io/qcom-ai-hub/geniex-cli:<TAG> \
+  ghcr.io/qualcomm/geniex-cli:<TAG> \
   serve
 # interactive shell connect to server
 docker run -it --rm --privileged \
   -v "$PWD/data:/data" \
   -v /usr/lib:/opt/qcom-lib:ro \
   --network=host \
-  ghcr.io/qcom-ai-hub/geniex-cli:<TAG> \
+  ghcr.io/qualcomm/geniex-cli:<TAG> \
   run <model>
 ```
 
