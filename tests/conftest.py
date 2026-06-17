@@ -117,7 +117,7 @@ def geniex_session():
 @pytest.fixture(scope='session')
 def llama_cpp_llm_paths(geniex_session):
     try:
-        return _mm.ensure_cached(LLAMA_CPP_LLM_MODEL, quant=LLAMA_CPP_LLM_QUANT, hub='hf')
+        return _mm.ensure_cached(LLAMA_CPP_LLM_MODEL, precision=LLAMA_CPP_LLM_QUANT, hub='hf')
     except geniex.GenieXError as e:
         pytest.skip(f'could not pull {LLAMA_CPP_LLM_MODEL}: {e}')
 
